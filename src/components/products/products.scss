@@ -1,0 +1,194 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+#products-page {
+  display: block;
+}
+#products {
+  @include flexbox($wrap: wrap, $justifyContent: center);
+
+}
+.product {
+  @include setSpacing($margin: 0 0 0 0.2em, $padding: 2rem 0 0 0);
+  box-sizing: border-box;
+  border-width: 0px 5px 2px 0px;
+  border-bottom-style: dotted;
+  border-color: lightgrey;
+  box-shadow: 0 0 25px -20px #000;
+  #title {
+    @include setDimension($height: auto, $padding: 0 0 0 15px);
+    @include fontStyle($size: 0.9rem, $weight: 700);
+  }
+  img {
+    @include setDimension($width : 40%);
+  }
+}
+#product-details {
+  @include flexbox();
+  div {
+    background-color: #fff;
+  }
+}
+#desc {
+  width: 100%;
+  padding-left: 0.5rem;
+  p {
+    font-size: 0.8rem;
+    @include setDimension($height: max-content, $padding: 5px);
+
+  }
+  button {
+    @include setDimension($height: 2.5em);
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 767px) {
+  select {
+    @include setDimension($width: 100%, $padding: 10px);
+    background-color: $primary-color !important;
+    border: none;
+    border-radius: 2px;
+    @include fontStyle($color: $lightest-color);
+
+  }
+  #categories {
+    background-color: $primary-color;
+    @include setDimension($width: 100%, $margin: 1rem 0 0 0);
+  }
+  #buy {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  #products-page {
+    @include flexbox();
+    button {
+      @include setDimension($width: 100%, $height: 2.5em, $margin: 0.5em 0);
+    }
+  }
+
+  #categories {
+    width: 30%;
+    background-color: $secondary-color;
+    margin-top: 0rem;
+    p {
+      padding: 10px 10px 0px 20px;
+
+      color: $darker-color;
+      cursor: pointer;
+    }
+    & p:hover,
+    & p:focus {
+      color: $link-hover-color;
+    }
+  }
+
+  #products {
+    width: 75%;
+    justify-content: flex-start;
+    div {
+      width: 15rem;
+    }
+  }
+
+  .product {
+    margin: 0 0 0 1em;
+    #title {
+      height: 3rem;
+    }
+    img {
+      @include setDimension($width: 50%, $padding: 0.5rem);
+    }
+  }
+  #product-details {
+    @include setDimension($width: 14rem, $height: 10rem, $margin: auto);
+    div {
+      @include fontStyle($size: 0.6rem, $weight: normal);
+      background-color: $secondary-color;
+    }
+  }
+
+  #buy {
+    display: block;
+    margin-top: 0rem;
+    p {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  #products-page {
+    display: flex;
+    button {
+      @include setDimension($width: 6rem, $height: 2rem);
+    }
+  }
+
+  #categories {
+    width: 20%;
+    background-color: $secondary-color;
+    margin-top: 0rem;
+    p {
+      @include setSpacing($padding: 10px 10px 0px 20px);
+      color: $darker-color;
+      cursor: pointer;
+    }
+    & p:hover,
+    & p:focus {
+      color: $link-hover-color;
+    }
+  }
+
+  #products {
+    width: 80%;
+    justify-content: flex-start;
+    div {
+      width: 15rem;
+    }
+  }
+
+  .product {
+    display: block;
+    @include setSpacing($margin: 8px 8px 25px 8px);
+    #title {
+      height: 3rem;
+    }
+    img {
+      @include setDimension($width: 100%, $padding: 0.5rem);
+
+    }
+  }
+
+  #product-details {
+    display: block;
+    div {
+      @include setDimension($width: auto, $height: 5rem);
+      background-color: $secondary-color;
+      padding-left: 5px;
+    }
+  }
+
+  #buy {
+    @include flexbox($justifyContent: space-between);
+    padding: 0.5rem 0;
+    p {
+      display: block;
+      @include fontStyle($color: rgb(70, 70, 70), $size: 0.9em);
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .selected {
+    color: $link-hover-color !important;
+  } 
+
+  .deselected {
+    color: $darker-color !important;
+  }
+  #desc {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,46 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+
+#briefCategory {
+  img {
+    @include setDimension($width: 50%, $height: 50%);
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  button {
+    font-size: 0.8em;
+    @include setDimension($width: fit-content, $height: 2em);
+  }
+  div {
+    width: 100%;
+    @include flexbox($justifyContent: center, $alignItems: center, $direction: column);
+  }
+}
+
+main {
+  padding-bottom: 20px;
+}
+
+#divider {
+  border: none;
+  position: relative;
+  background: none;
+  border-bottom: 1px solid #aaa;
+  box-shadow: 0 25px 20px -15px #000;
+  @include setDimension($width: 70%, $height: 50px, $top: 12px, $margin: -50px auto 10px);
+}
+
+@media screen and (min-width: 768px) {
+  #briefCategory {
+    img {
+      @include setDimension($width: 30%, $height: 30%);
+    }
+    button {
+      font-size: 0.9em;
+      z-index: 1;
+      @include setDimension($width: fit-content, $height: 3em);
+    }
+  }
+}

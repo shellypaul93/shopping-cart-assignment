@@ -1,0 +1,28 @@
+@import '../../style/mixins';
+
+#toast {
+  @include setDimension($width: 15rem, $height: max-content, $right: 4rem, $top: 6rem);
+  @include fontStyle($color: #fff, $align: center);
+    position: fixed;
+    z-index: 10;
+    background-color: rgba(0,0,0, 0.7);
+    border-radius: 5px;
+    animation-name: play;
+    animation-duration: 2s;
+  }
+  
+  @keyframes play {
+    from {
+      transform: translateX(100%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  @media screen and (min-width: 0px) and (max-width: 767px) {
+    #toast {
+      top: 7rem;
+    }
+  }

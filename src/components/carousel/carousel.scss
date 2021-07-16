@@ -1,0 +1,22 @@
+@import '../../style/variables';
+@import "../../style/mixins";
+
+.carousel-control-prev span:first-child, 
+.carousel-control-next span:first-child {
+    background-color: $darker-color;
+    color: $lightest-color;
+    @include setDimension($width : 3.5rem);
+}
+
+.carousel-indicators {
+    z-index: 1;
+    & > button {
+        background-color: #666 !important;
+        @include setDimension($width: 0.5rem !important, $height: 0.5rem !important);
+        border-radius: 100% !important;
+    }
+}
+
+#carouselIndicators {
+    padding-top: 20px;
+}

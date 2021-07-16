@@ -1,0 +1,31 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+.modal {
+  backdrop-filter: contrast(0.5);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  transform: translate(-50%, -50%);
+  border: 1px solid #888;
+  position: absolute;
+  @include setDimension($width: 50%, $minHeight: 50%, $top: 50%, $left: 50%, $margin: auto);
+}
+
+.close {
+  float: right;
+  padding: 1rem;
+  @include fontStyle($color: $lightest-color, $size: 2rem, $weight: bold);
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
