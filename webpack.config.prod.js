@@ -7,6 +7,9 @@ module.exports = {
         filename: 'bundle.[contenthash].js',  
         publicPath: '', 
     },
+    devServer: {
+        historyApiFallback: true
+      },
     mode: "production",
     module: {  
         rules: [
