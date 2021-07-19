@@ -1,3 +1,4 @@
+@import '../../style/variables';
 @import '../../style/mixins';
 
 #toast {
@@ -5,7 +6,7 @@
   @include fontStyle($color: #fff, $align: center);
     position: fixed;
     z-index: 10;
-    background-color: rgba(0,0,0, 0.7);
+    background-color: $darkest-color;
     border-radius: 5px;
     animation-name: play;
     animation-duration: 2s;

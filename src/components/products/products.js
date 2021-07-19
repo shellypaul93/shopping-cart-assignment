@@ -42,6 +42,7 @@ class Products {
         <div class='only-mobile' role="navigation" 
           aria-label="Categories" tabIndex='0' id='categories'>
           <select>
+            <option value="none" selected="" disabled="" hidden="">Select a category</option>
             ${this.categories.map(category => {
               return `<option value='${category.name}' 
               ${category.name === selectedCategory ? 'selected' : ''}>

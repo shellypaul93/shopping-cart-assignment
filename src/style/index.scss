@@ -22,11 +22,6 @@ body {
   font-family: $primary-font;
 }
 
-a:hover {
-  cursor: pointer;
-  color: $link-hover-color
-}
-
 summary {
   display: table;
 }
@@ -44,6 +39,10 @@ a {
   text-decoration: none;
   color: $darker-color;
   font-weight: bold;
+  &:hover {
+    cursor: pointer;
+    color: $link-hover-color
+  }
 }
 
 hr {

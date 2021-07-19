@@ -7,6 +7,7 @@ import { handleEvent } from "../..";
 
 class SignIn {
     render() {
+        debugger;
         const loginTemplate = `
         <section id='userSession' class='flex'>
             <div>

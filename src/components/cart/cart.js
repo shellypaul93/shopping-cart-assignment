@@ -16,9 +16,9 @@ class Cart {
     if (cartIsEmpty) {
       document.getElementById('empty-cart').onclick = function() {
         handleEvent({ target: { name: 'products' } });
-        const modal = document.getElementById("myModal");
+        const modal = document.getElementById('myModal');
         if (modal) {
-          modal.style.display = "none";
+          modal.style.display = 'none';
         }
       };
     }
@@ -26,18 +26,18 @@ class Cart {
     const cartIsFilled = document.getElementById('filled-cart');
     if (cartIsFilled) {
       document.getElementById('filled-cart').onclick = function() {
-        if (window.sessionStorage.getItem("user")) {
+        if (window.sessionStorage.getItem('user')) {
           handleEvent({ target: { name: 'checkout' }});
+          handleEvent({ target: { name: 'cart' }});
         } else {
-          new Toast().render('To checkout items, you need to login first !')
+          new Toast().render('To checkout items, you need to login first !');
+          debugger;
           new SignIn().render();
         }
-        const modal = document.getElementById("myModal");
+        const modal = document.getElementById('myModal');
         if (modal) {
-          modal.style.display = "none";
-        } else {
-          handleEvent({ target: { name: 'cart' }});
-        }
+          modal.style.display = 'none';
+        } 
       };
     }
 
@@ -84,7 +84,7 @@ class Cart {
     let cartTotal = 0;
     let totalItems = 0;
     totalItems = getTotalCartItems(cartItems);
-    const message = `<div class='flex' id="message">
+    const message = `<div class='flex' id='message'>
       <img src=${LowestPrice} alt='Lowest Price Guaranteed'></img>
         <summary><p> You won't find it cheaper anywhere </p></summary>
       </div>`;

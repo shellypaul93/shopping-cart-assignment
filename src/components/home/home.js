@@ -28,7 +28,7 @@ class Home {
     this.carousel.render(this.offers);
     const categoriesTemplate = `<hr id='divider'/><br/>${this.categories.map((category, index) => {
     const even = index%2 === 0;
-      return `<div class='flex' id='briefCategory'>
+      return `<div class='briefCategory'>
         ${even === true
         ? (`<img src='${category.imageUrl}' alt='${category.description}' />
         <div>
@@ -47,7 +47,7 @@ class Home {
     const carousel = document.getElementById('carouselIndicators');
     carousel.insertAdjacentHTML('afterEnd', categoriesTemplate);
     
-    document.querySelectorAll('#briefCategory button').forEach(
+    document.querySelectorAll('.briefCategory button').forEach(
       element => {
         element.addEventListener('click', function(event) {
           const categoryName = event.target.id;

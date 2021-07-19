@@ -73,14 +73,9 @@
     background-color: $secondary-color;
     margin-top: 0rem;
     p {
-      padding: 10px 10px 0px 20px;
-
+      @include setSpacing($padding: 10px 10px 0px 20px);
       color: $darker-color;
       cursor: pointer;
-    }
-    & p:hover,
-    & p:focus {
-      color: $link-hover-color;
     }
   }
 
@@ -135,10 +130,6 @@
       color: $darker-color;
       cursor: pointer;
     }
-    & p:hover,
-    & p:focus {
-      color: $link-hover-color;
-    }
   }
 
   #products {
@@ -175,7 +166,7 @@
     padding: 0.5rem 0;
     p {
       display: block;
-      @include fontStyle($color: rgb(70, 70, 70), $size: 0.9em);
+      @include fontStyle($color: $darker-color, $size: 0.9em);
     }
   }
 }
