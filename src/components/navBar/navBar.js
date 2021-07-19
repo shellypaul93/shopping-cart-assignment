@@ -54,10 +54,10 @@ class NavBar {
     
     document.querySelector('.login').onclick = function() {
       if (window.sessionStorage.getItem("user") ?? true) {
-        document.querySelector('.login').innerText = 'Sign In';
+        document.querySelector('.login a strong').innerText = 'Sign In';
         window.sessionStorage.setItem("user", undefined);
       } else {
-        document.querySelector('.login').innerText = 'Sign Out';
+        document.querySelector('.login a strong').innerText = 'Sign Out';
       }
       new SignIn().render();
     };

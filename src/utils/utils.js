@@ -79,12 +79,3 @@ export const getDevice = () => {
 export const scrollToTop = () => {
   window.scrollTo(0,0);
 }
-
-    // console.log(
-    //   'Cart ---> \n | Product Name | Quantity | Stock |\n',
-    //   addedToCart
-    //     .map(item => {
-    //       return `| ${item.name} | ${item.count}  | ${item.stock} |\n`;
-    //     })
-    //     .join('')
-    // );

@@ -3,6 +3,7 @@ import Carousel from '../carousel/carousel';
 import './home.scss';
 import { handleEvent } from '../../index';
 import Toast from '../toast/toast';
+import Loader from '../loader/loader';
 
 class Home {
   constructor() {
@@ -14,7 +15,10 @@ class Home {
   async render() {
     scrollToTop();
     try {
-      if (this.offers.length === 0) {
+      if (this.offers.length === 0 || this.categories.length === 0) {
+        new Loader().render();
+      }
+       if (this.offers.length === 0) {
         this.offers = await fetchData('banners');
       }
       if (this.categories.length === 0) {

@@ -31,7 +31,6 @@ class Cart {
           handleEvent({ target: { name: 'cart' }});
         } else {
           new Toast().render('To checkout items, you need to login first !');
-          debugger;
           new SignIn().render();
         }
         const modal = document.getElementById('myModal');
@@ -97,7 +96,9 @@ class Cart {
           let itemTotal = Number(item.count) * Number(item.price);
           cartTotal = cartTotal + itemTotal;
             return `<div id='product-details' style='display: flex;'>
-            <img src='${item.imageURL}' alt='${item.name}'></img>
+            <img src='${item.imageURL}' 
+              alt='${item.count} quantity of ${item.name} for a total of Rupees ${itemTotal}'
+               tabIndex='0''></img>
             <section>
                 <p><strong>${item.name.slice(0, 130)}</strong></p>
                 <button class='primary' aria-label='decrement quantity' 

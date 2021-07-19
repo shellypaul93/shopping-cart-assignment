@@ -5,8 +5,9 @@ const textInput = (label) => {
     const textInputTemplate = `
         <div class='field'>
             <label for='${name}'>${label}
-                <input id='${name}' type='${inputType}' name='${name}' required /> 
-                <span></span>
+                <input id='${name}' type='${inputType}' name='${name}' required 
+                aria-describedby='${name}-error'/> 
+                <span id='${name}-error'></span>
             </label>
         </div>
     `;

@@ -12,7 +12,6 @@ const cart = new Cart();
 let home = new Home();
 const login = new SignIn();
 const footer = new Footer();
-let modal = {};
 let addedToCart = [];
 
 navBar.render();
@@ -20,7 +19,6 @@ login.render();
 footer.render();
 
 export const handleEvent = function(event) {
-
   const { name, value } = event.target;
   switch (name) {
     case 'home':

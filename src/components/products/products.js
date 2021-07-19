@@ -3,6 +3,7 @@ import { findProduct, checkProductInCart,
   fetchData, postData, sortCategories, getDevice, scrollToTop } from '../../utils/utils.js';
 import Toast from '../toast/toast';
 import { handleEvent } from '../../index';
+import Loader from '../loader/loader';
 
 class Products {
 
@@ -22,6 +23,9 @@ class Products {
     let [selectedCategory, addedToCart, navBar ] = args;
     this.addedToCart = addedToCart;
     try {
+      if (this.products.length === 0 || this.categories.length === 0) {
+        new Loader().render();
+      }
       if (this.products.length === 0) {
         this.products = await fetchData('products');
       }
@@ -64,10 +68,11 @@ class Products {
                   <p id='title'>${product.name}</p>
                   <div id='product-details'>
                       <img src='${product.imageURL}' 
-                        alt='${product.name}'></img>
-                      <div id='desc'>
-                        <p>${product.description.slice(0, 130)}</p>
-                          <button aria-label='Buy ${product.name} at Rupees ${product.price}'
+                        alt='${product.name}' tabIndex='0'></img>
+                      <div id='desc' tabIndex='0' aria-label='${product.description}'>
+                        <p>
+                          ${product.description.slice(0, 130)}</p>
+                          <button aria-label='Click to buy at Rupees ${product.price}'
                           class='primary only-mobile' id=${product.id}>
                             Buy Now @ Rs.${product.price}
                           </button>
@@ -75,7 +80,7 @@ class Products {
                   </div>
                   <div id='buy'>
                     <p class='only-desktop'> MRP Rs.${product.price}</p>
-                    <button aria-label='Buy ${product.name} at Rupees ${product.price}'
+                    <button aria-label='Click to buy at Rupees ${product.price}'
                     class='primary' id=${product.id}>
                       Buy Now 
                       ${getDevice() === 'tablet' ? `@ Rs.${product.price}` : ''}

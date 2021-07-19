@@ -7,7 +7,6 @@ import { handleEvent } from "../..";
 
 class SignIn {
     render() {
-        debugger;
         const loginTemplate = `
         <section id='userSession' class='flex'>
             <div>
@@ -18,7 +17,7 @@ class SignIn {
                 <form>
                     ${textInput("Email")}
                     ${textInput("Password")}
-                    <span id='formErrors'></span>
+                    <span tabIndex='0' id='formErrors'></span>
                     <button class='primary' type='submit'>Login</button>
                 </form>
             </div>
@@ -49,11 +48,10 @@ class SignIn {
                 password !== 'admin@1') || email !== 'test@test.com') {
             new Toast().render('Login failed. \n Invalid login crendentials.');
             errorSpan(span, 'Login failed. \n Invalid login crendentials.');
-            return; 
         } else {
             new Toast().render(`Welcome to Sabka Bazaar !`);
             window.sessionStorage.setItem("user", email);
-            document.querySelector('.login').innerText = 
+            document.querySelector('.login a strong').innerText = 
                 window.sessionStorage.getItem("user") ? 'Sign Out' : 'Sign In';
             handleEvent({ target: { name: 'home' }});
         }
