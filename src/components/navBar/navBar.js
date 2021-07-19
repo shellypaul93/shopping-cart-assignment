@@ -48,6 +48,8 @@ class NavBar {
     document.querySelectorAll('.homeLink').forEach(
       element =>
         (element.onclick = function() {
+          event.preventDefault();
+          history.pushState({urlPath:'/home'},"",'/home')
           handleEvent({ target: { name: 'home' } });
         })
     );
@@ -59,14 +61,20 @@ class NavBar {
       } else {
         document.querySelector('.login a strong').innerText = 'Sign Out';
       }
+      event.preventDefault();
+      history.pushState({urlPath:'/'},"",'/')
       new SignIn().render();
     };
 
     document.querySelector('.register').onclick = function() {
+      event.preventDefault();
+      history.pushState({urlPath:'/register'},"",'/register')
       new Signup().render();
     };
 
-    document.getElementsByClassName('productsLink')[0].onclick = function() {
+    document.getElementsByClassName('productsLink')[0].onclick = function(event) {
+      event.preventDefault();
+      history.pushState({urlPath:'/products'},"",'/products')
       handleEvent({ target: { name: 'products' } });
     };
     
