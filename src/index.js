@@ -5,7 +5,7 @@ import Cart from './components/cart/cart';
 import SignIn from './components/signin/signin';
 import Footer from './components/footer/footer';
 import './style/index.scss';
-import { isBlank } from './utils/utils';
+import { getCurrentPath } from './utils/utils';
 import Signup from './components/signup/signup';
 
 const navBar = new NavBar();
@@ -15,9 +15,7 @@ let home = new Home();
 const login = new SignIn();
 const footer = new Footer();
 let addedToCart = [];
-let location = window.location.href;
-location = location.split('/')
-let pathParam = location[location.length-1];
+let path = getCurrentPath();
 
 export const handleEvent = function(event) {
   const { name, value } = event.target;
@@ -42,15 +40,17 @@ export const handleEvent = function(event) {
       break;
     case 'register':
       new Signup().render();
+      break;
     default:
+      login.render();
+      history.pushState({urlPath:'/'},"",'/');
       break;
   }
 };
 
 navBar.render();
-if (!isBlank(pathParam)) {
-  handleEvent({ target: { name: pathParam }})
-} else {
-  login.render();
+if (['buy', 'checkout'].includes(path)) {
+  path = 'default';
 }
+handleEvent({ target: { name: path }});
 footer.render();

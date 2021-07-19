@@ -59,6 +59,12 @@ export const filterCart = (cartItems) => cartItems.filter((item) => item.count >
 
 export const isBlank = (value) => value === "" || value === undefined || value.length === 0;
 
+export const getCurrentPath = () => {
+  let location = window.location.href;
+  location = location.split('/')
+  return location[location.length-1];
+}
+
 export const getTotalCartItems = (cartItems) => {
   let total = 0;
   cartItems.forEach((item) => {
