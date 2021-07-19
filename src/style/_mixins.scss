@@ -1,0 +1,98 @@
+@import './variables';
+
+@mixin flexbox( $display: flex,
+$direction: row,
+$placeContent: null,
+$placeItems: null,
+$wrap: nowrap,
+$shrink: unset,
+$grow: 0,
+$basis: null,
+$alignContent: null,
+$justifyContent: null,
+$alignItems: null,
+$justifyItems: null) {
+    display: $display;
+    flex-grow : $grow; 
+    flex-shrink: $shrink; 
+    @if $direction { flex-direction: $direction; }
+    @if $alignItems   { align-items: $alignItems; }
+    @if $justifyItems { justify-items: $justifyItems; }
+    @if $justifyContent { justify-content: $justifyContent; }
+    @if $basis { flex-basis : $basis; }
+    @if $wrap { flex-wrap: $wrap }
+}
+
+@mixin setDimension(
+    $width : null,
+    $height : null,
+    $top : null,
+    $bottom : null,
+    $left : null,
+    $right : null,
+    $margin : null,
+    $padding : null,
+    $minWidth : null,
+    $minHeight : null,
+    $maxWidth : null,
+    $maxHeight : null,
+    $boxSizing : border-box) {
+        @if $width   { width : $width; }
+        @if $height { height : $height; }
+        @if $top { top: $top; }
+        @if $left { left : $left; } 
+        @if $right { right : $right; } 
+        @if $bottom { bottom : $bottom; } 
+        @if $margin   { margin : $margin; }
+        @if $padding { padding : $padding; }
+        @if $boxSizing { box-sizing: $boxSizing; }
+        @if $minWidth {min-width :  $minWidth }
+        @if $minHeight { min-height: $minHeight }
+        @if $maxWidth { max-width: $maxWidth } 
+        @if $maxHeight { max-height: $maxHeight }
+}
+
+@mixin setSpacing(
+    $margin : null,
+    $padding : null,
+    $boxSizing : border-box) {
+        @if $margin   { margin : $margin; }
+        @if $padding { padding : $padding; }
+        @if $boxSizing { box-sizing: $boxSizing; }
+}
+
+@mixin borderStyle(
+    $radius: null,
+    $style: null,
+    $width: null,
+    $color: null,
+    $outline: null) {
+        @if $radius  { border-radius : $radius; }
+        @if $style { border-style : $style; }
+        @if $width { border-width: $width; }
+        @if $color { border-color : $color; } 
+        @if $outline { outline : $outline; } 
+    }
+
+@mixin fontStyle(
+    $size: false,
+    $color: false,
+    $weight: false,
+    $align: false,
+    $lh: false,
+    $opacity: false) {
+    font-family: $primary-font;
+    @if $size { font-size: $size; }
+    @if $color { color: $color; }
+    @if $weight { font-weight: $weight; }
+    @if $align { text-align: $align }
+    @if $lh { line-height: $lh; }
+    @if $opacity { opacity: $opacity; }
+}
+
+@mixin overflow(
+    $x: false,
+    $y: false) {
+    @if $x { overflow-x: $x; }
+    @if $y { overflow-y: $y; }
+}

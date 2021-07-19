@@ -1,0 +1,18 @@
+// COLORS
+$primary-color: #d92562;
+$primary-hover-color: darken(#d92562, 10%);
+$secondary-color: #f7f7f7;
+$secondary-hover-color: darken(#f7f7f7, 10%);
+$link-hover-color: #0d6efd;
+$lightest-color: #fff; 
+$darkest-color: #222;
+$darker-color: rgb(70, 70, 70);
+
+// FONTS
+$primary-font: "Dosis";
+
+$breakpoints: (
+  'medium': (min-width: 0px),
+  'large': (min-width: 768px),
+  'huge': (min-width: 1025px),
+);

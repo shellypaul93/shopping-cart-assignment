@@ -1,0 +1,14 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+footer#app {
+    position: absolute;
+    font-size: 0.9em;
+    background-color: $secondary-color;
+    @include setDimension($width: 100%, $height: max-content, $left: 0px);
+    p {
+        position: relative;
+        left: 5%;
+        padding-top: 1rem;
+    }
+}

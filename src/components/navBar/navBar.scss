@@ -1,0 +1,73 @@
+@import "../../style/variables";
+@import "../../style/mixins";
+
+section {
+  @include setDimension($width : 100%);
+}
+
+#brandLogo {
+  padding-top: 0.5rem;
+}
+
+header hr {
+  position: relative;
+  @include setDimension($width : 100%, $top : 0px);
+}
+
+.userSession,
+.productsLink,
+.app-header .homeLink {
+  display: none;
+}
+
+.app-header {
+  @include flexbox($justifyContent: flex-end);
+  .productsLink {
+    @include setDimension($width : 60%, $margin : 0px 0px 0px 1rem);
+  }
+}
+
+#cart {
+  @include flexbox($justifyContent: center, $alignItems: center);
+  @include setDimension($width : 8rem, $height: 3rem, $margin : 0px 0px 0px 4rem);
+  border: none;
+  background-color: $secondary-color;
+  p {
+    margin-bottom: 0;
+    @include fontStyle($size: 0.8rem);
+  }
+  img {
+    @include setDimension($width : 2rem, $height: 1.5rem);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .userSession {
+    @include flexbox($justifyContent: flex-end);
+  }
+  .productsLink,
+  .app-header .homeLink {
+    display: block;
+  }
+  #brandLogo {
+    padding-top: 1rem;
+  }
+  #cart {
+    @include flexbox($justifyContent: center, $alignItems: center);
+    border: none;
+    background-color: $secondary-color;
+    @include setDimension($width : 10rem, $height: 4rem, $margin: 0 0 0 4rem);
+    img {
+      @include setDimension($width : 3rem, $height: 2rem);
+    }
+  }
+  .userSession .login,
+  .userSession .register {
+    padding: 1rem;
+    @include fontStyle($size: 0.8rem, $color: $darker-color, $weight: bold);
+  }
+
+  .homeLink {
+    @include setDimension($width : 10%);
+  }
+}

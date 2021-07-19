@@ -1,0 +1,42 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+#userSession {
+    padding: 2rem;
+    @include flexbox($justifyContent: space-evenly, $alignItems: center, $direction: column);
+    div {
+        width: 90%
+    }
+}
+
+.field {
+    margin-bottom: 1rem;
+    width: 100%
+}
+
+input {
+    @include setDimension($width: 100%, $height: 2rem);
+    @include borderStyle($width: 0px 0px 2px 0px, $color: lightgray);
+    padding-left: 1rem;
+    &:focus { 
+        @include borderStyle($width: 0px 0px 2px 0px !important,
+        $color: skyblue !important, $outline: none !important);
+
+    }
+}
+
+label {
+    width: 100%;
+}
+
+#registerForm button {
+    @include setDimension($width: 100%, $height: 3rem, $margin: 2rem 0 0 0);
+
+}
+
+@media screen and (min-width: 768px) {
+    #userSession {
+        padding: 2rem;
+        @include flexbox($justifyContent: space-evenly, $alignItems: center, $direction: row);
+    }
+}
